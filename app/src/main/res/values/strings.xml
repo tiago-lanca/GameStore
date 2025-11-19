@@ -4,4 +4,6 @@
     <string name="settings_icon_desc">Settings icon</string>
     <string name="notifications_icon_desc">Notifications icon</string>
     <string name="company_name">Game Store Company</string>
+    <string name="empty_games_list_text">No games to be shown.</string>
+    <string name="game_image_desc">Game image</string>
 </resources>

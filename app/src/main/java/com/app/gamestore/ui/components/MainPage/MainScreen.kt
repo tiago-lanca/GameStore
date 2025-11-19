@@ -1,5 +1,9 @@
 package com.app.gamestore.ui.components.MainPage
 
+import android.content.Intent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -8,6 +12,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Notifications
 import androidx.compose.material.icons.outlined.Settings
@@ -23,22 +29,35 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
+import com.app.gamestore.GameDetailActivity
 import com.app.gamestore.R
 import com.app.gamestore.enums.NavbarOptions
+import com.app.gamestore.models.Game
+import com.app.gamestore.viewmodels.GameViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen() {
+fun MainScreen(
+    gamesVM: GameViewModel = viewModel()
+) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
@@ -93,6 +112,10 @@ fun MainScreen() {
         }
     ) { innerPadding ->
 
+        val context = LocalContext.current
+        val gamesList by gamesVM.gamesList.collectAsState()
+        val selectedGame by gamesVM.selectedGame.collectAsState()
+
         Column(
             modifier = Modifier
                 .padding(innerPadding)
@@ -112,86 +135,68 @@ fun MainScreen() {
                 )
             }
 
-            Column(
+            LazyColumn(
                 verticalArrangement = Arrangement.spacedBy(5.dp),
                 modifier = Modifier
                     .padding(top = 10.dp)
             ) {
-                // Card 1
-                Card(
-                    colors = CardDefaults.cardColors(
-                        containerColor = Color(0xFFBD8F05),
-                    ),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .size(200.dp)
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                    ) {
+                if (gamesList.isEmpty()) {
+                    item {
                         Text(
-                            text = "Game 1",
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.SemiBold,
-                            modifier = Modifier
-                                .padding(16.dp)
-                                .align(Alignment.BottomStart),
-                            textAlign = TextAlign.Center,
+                            text = stringResource(R.string.empty_games_list_text),
+                            color = Color.Black,
                         )
                     }
-                }
+                } else {
 
-                // Card 2
-                Card(
-                    colors = CardDefaults.cardColors(
-                        containerColor = Color(0xFFBD8F05),
-                    ),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .size(200.dp)
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                    ) {
-                        Text(
-                            text = "Game 2",
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.SemiBold,
+                    itemsIndexed(items = gamesList, key = { _, game -> game.id }) { index, game ->
+                        Card(
                             modifier = Modifier
-                                .padding(16.dp)
-                                .align(Alignment.BottomStart),
-                            textAlign = TextAlign.Center,
-                        )
-                    }
-                }
+                                .fillMaxWidth()
+                                .size(200.dp)
+                                .clickable {
+                                    gamesVM.selectGame(game)
 
-                // Card 3
-                Card(
-                    colors = CardDefaults.cardColors(
-                        containerColor = Color(0xFFBD8F05),
-                    ),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .size(200.dp)
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                    ) {
-                        Text(
-                            text = "Game 3",
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.SemiBold,
-                            modifier = Modifier
-                                .padding(16.dp)
-                                .align(Alignment.BottomStart),
-                            textAlign = TextAlign.Center,
-                        )
+                                    val intent = Intent(context, GameDetailActivity::class.java)
+                                    intent.putExtra("selected_game", game)
+                                    context.startActivity(intent)
+                                }
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxSize()
+                            ) {
+                                Image(
+                                    painter = painterResource(game.icon),
+                                    contentDescription = stringResource(R.string.game_image_desc),
+                                    contentScale = ContentScale.FillBounds,
+                                    modifier = Modifier
+                                        .matchParentSize()
+                                )
+
+                                // Dark overlay to make the text readable
+                                Box(
+                                    modifier = Modifier
+                                        .matchParentSize()
+                                        .background(Color.Black.copy(alpha = 0.50f))
+                                )
+
+                                Text(
+                                    text = game.name,
+                                    color = Color.White,
+                                    fontSize = 20.sp,
+                                    fontWeight = FontWeight.SemiBold,
+                                    modifier = Modifier
+                                        .padding(16.dp)
+                                        .align(Alignment.BottomStart),
+                                    textAlign = TextAlign.Center,
+                                )
+                            }
+                        }
                     }
                 }
             }
+
         }
 
     }
