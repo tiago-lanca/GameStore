@@ -25,6 +25,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -32,7 +36,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Devices
@@ -41,6 +44,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.app.gamestore.R
 import com.app.gamestore.models.Game
+import com.app.gamestore.models.GameExtension
 import com.app.gamestore.samples.GameSamples
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -90,6 +94,10 @@ fun GameDetailsScreen(
             )
         }
     ) { innerPadding ->
+
+        var showExtensionBuyBottomSheet by remember { mutableStateOf(false) }
+        var selectedGameExtension by remember { mutableStateOf<GameExtension?>(null) }
+
 
         Column(
             verticalArrangement = Arrangement.spacedBy(20.dp),
@@ -158,62 +166,25 @@ fun GameDetailsScreen(
                 }
                 else{
                     itemsIndexed(items = game.extensions, key = {_, extension -> extension.id}) { index, extension ->
-                        Row(
-                            horizontalArrangement = Arrangement.spacedBy(15.dp),
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(bottom = 10.dp)
-                        ) {
-
-                            Card(
-                                shape = RoundedCornerShape(20.dp),
-                                modifier = Modifier
-                                    .size(140.dp)
-                            ) {
-                                Box(
-                                    modifier = Modifier.fillMaxSize()
-                                ) {
-                                    Image(
-                                        painter = painterResource(extension.image),
-                                        contentDescription = stringResource(R.string.extension_image_desc),
-                                        contentScale = ContentScale.Crop,
-                                        modifier = Modifier
-                                            .matchParentSize()
-                                    )
-                                }
+                        GameExtensionBox(
+                            extension = extension,
+                            onGameExtensionClick = {
+                                selectedGameExtension = it
+                                showExtensionBuyBottomSheet = true
                             }
-
-                            Column(
-                                verticalArrangement = Arrangement.spacedBy(10.dp),
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                            ) {
-                                Text(
-                                    text = extension.name,
-                                    textAlign = TextAlign.Start,
-                                    fontSize = 18.sp,
-                                    fontWeight = FontWeight.SemiBold
-                                )
-                                Text(
-                                    text = extension.description,
-                                    textAlign = TextAlign.Start
-                                )
-                                Text(
-                                    text = "$${extension.price}",
-                                    textAlign = TextAlign.End,
-                                    fontSize = 18.sp,
-                                    fontWeight = FontWeight.Medium,
-                                    modifier = Modifier.fillMaxWidth()
-                                )
-                            }
-                        }
+                        )
                     }
 
                 }
             }
-
+            if(showExtensionBuyBottomSheet) {
+                ExtensionBuyBottomSheet(
+                    extension = selectedGameExtension!!,
+                    onDismiss = { showExtensionBuyBottomSheet = false },
+                    onBuy = { }
+                )
+            }
         }
-
     }
 }
 

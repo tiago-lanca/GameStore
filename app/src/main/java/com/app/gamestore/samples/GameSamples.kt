@@ -33,4 +33,13 @@ object GameSamples {
             )
         )
     }
+
+    fun createGameExtension(): GameExtension {
+        return GameExtension(
+            name = "Dawn of Delta",
+            description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+            image = R.drawable.anno_dlc_dawn_of_delta,
+            price = 12.99f
+        )
+    }
 }
