@@ -6,4 +6,8 @@
     <string name="company_name">Game Store Company</string>
     <string name="empty_games_list_text">No games to be shown.</string>
     <string name="game_image_desc">Game image</string>
+    <string name="arrow_back_desc">Arrow back description</string>
+    <string name="favorite_icon_desc">Favorite icon</string>
+    <string name="empty_extensions_list_text">No DLC/Extensions to be shown.</string>
+    <string name="extension_image_desc">Extension/DLC image</string>
 </resources>

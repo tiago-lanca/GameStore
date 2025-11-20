@@ -10,6 +10,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.app.gamestore.ui.theme.GameStoreTheme
 import com.app.gamestore.models.Game
+import com.app.gamestore.samples.GameSamples
 import com.app.gamestore.ui.components.GameDetails.GameDetailsScreen
 
 class GameDetailActivity : ComponentActivity() {
@@ -20,14 +21,8 @@ class GameDetailActivity : ComponentActivity() {
             GameStoreTheme {
                 val context = LocalContext.current
 
-
-                val selectedGame = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                    intent.getParcelableExtra<Game>("selected_game")
-                }
-                else{
-                    @Suppress("DEPRECATION")
-                    intent.getParcelableExtra<Game>("selected_game")
-                }
+                @Suppress("DEPRECATION")
+                val selectedGame = intent.getParcelableExtra<Game>("selected_game")
 
                 GameDetailsScreen(selectedGame!!, context)
 
@@ -39,5 +34,6 @@ class GameDetailActivity : ComponentActivity() {
 @Preview
 @Composable
 fun GameDetailActivityPreview(){
-    GameDetailActivity()
+    GameDetailActivity(
+    )
 }

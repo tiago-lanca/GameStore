@@ -18,10 +18,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Notifications
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarDefaults
 import androidx.compose.material3.NavigationBarItem
@@ -31,8 +29,6 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -50,7 +46,6 @@ import androidx.navigation.compose.rememberNavController
 import com.app.gamestore.GameDetailActivity
 import com.app.gamestore.R
 import com.app.gamestore.enums.NavbarOptions
-import com.app.gamestore.models.Game
 import com.app.gamestore.viewmodels.GameViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -167,7 +162,7 @@ fun MainScreen(
                                     .fillMaxSize()
                             ) {
                                 Image(
-                                    painter = painterResource(game.icon),
+                                    painter = painterResource(game.image),
                                     contentDescription = stringResource(R.string.game_image_desc),
                                     contentScale = ContentScale.FillBounds,
                                     modifier = Modifier

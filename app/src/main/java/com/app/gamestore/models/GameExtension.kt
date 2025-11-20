@@ -8,6 +8,7 @@ import java.util.UUID
 data class GameExtension(
     val id: UUID = UUID.randomUUID(),
     val name: String,
-    val icon: Int,
+    val description: String,
+    val image: Int,
     val price: Float
 ): Parcelable

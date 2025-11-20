@@ -1,6 +1,5 @@
 package com.app.gamestore.viewmodels
 
-import androidx.compose.ui.res.painterResource
 import androidx.lifecycle.ViewModel
 import com.app.gamestore.R
 import com.app.gamestore.models.Game
@@ -21,88 +20,104 @@ class GameViewModel : ViewModel() {
         _gamesList.value = listOf<Game>(
             Game(
                 name = "Anno 117: Pax Romana",
-                icon = R.drawable.anno_game,
+                description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades no império romano.Construa cidades e lidere rebeliões.",
+                image = R.drawable.anno_game,
                 extensions = listOf(
                     GameExtension(
                         name = "The Hippodrome",
-                        icon = R.drawable.anno_dlc_the_hippodrome,
-                        price = 10.0f
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        image = R.drawable.anno_dlc_the_hippodrome,
+                        price = 12.99f
                     ),
                     GameExtension(
                         name = "Dawn of Delta",
-                        icon = R.drawable.anno_dlc_dawn_of_delta,
-                        price = 20.0f
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        image = R.drawable.anno_dlc_dawn_of_delta,
+                        price = 12.99f
                     ),
                     GameExtension(
                         name = "Prophecies of Ash",
-                        icon = R.drawable.anno_dlc_prophecies,
-                        price = 30.0f
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        image = R.drawable.anno_dlc_prophecies,
+                        price = 12.99f
                     )
                 )
             ),
 
             Game(
                 name = "Anno 117: Pax Romana",
-                icon = R.drawable.anno_dlc_prophecies,
+                description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades no império romano.Construa cidades e lidere rebeliões.",
+                image = R.drawable.anno_dlc_prophecies,
                 extensions = listOf(
                     GameExtension(
                         name = "The Hippodrome",
-                        icon = R.drawable.anno_dlc_the_hippodrome,
-                        price = 10.0f
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        image = R.drawable.anno_dlc_the_hippodrome,
+                        price = 12.99f
                     ),
                     GameExtension(
                         name = "Dawn of Delta",
-                        icon = R.drawable.anno_dlc_dawn_of_delta,
-                        price = 20.0f
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        image = R.drawable.anno_dlc_dawn_of_delta,
+                        price = 12.99f
                     ),
                     GameExtension(
                         name = "Prophecies of Ash",
-                        icon = R.drawable.anno_dlc_prophecies,
-                        price = 30.0f
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        image = R.drawable.anno_dlc_prophecies,
+                        price = 12.99f
                     )
                 )
             ),
 
             Game(
                 name = "Anno 117: Pax Romana",
-                icon = R.drawable.anno_dlc_dawn_of_delta,
+                description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades no império romano.Construa cidades e lidere rebeliões.",
+                image = R.drawable.anno_dlc_dawn_of_delta,
                 extensions = listOf(
                     GameExtension(
                         name = "The Hippodrome",
-                        icon = R.drawable.anno_dlc_the_hippodrome,
-                        price = 10.0f
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        image = R.drawable.anno_dlc_the_hippodrome,
+                        price = 12.99f
                     ),
                     GameExtension(
                         name = "Dawn of Delta",
-                        icon = R.drawable.anno_dlc_dawn_of_delta,
-                        price = 20.0f
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        image = R.drawable.anno_dlc_dawn_of_delta,
+                        price = 12.99f
                     ),
                     GameExtension(
                         name = "Prophecies of Ash",
-                        icon = R.drawable.anno_dlc_prophecies,
-                        price = 30.0f
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        image = R.drawable.anno_dlc_prophecies,
+                        price = 12.99f
                     )
                 )
             ),
 
             Game(
                 name = "Anno 117: Pax Romana",
-                icon = R.drawable.anno_dlc_the_hippodrome,
+                description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades no império romano.Construa cidades e lidere rebeliões.",
+                image = R.drawable.anno_dlc_the_hippodrome,
                 extensions = listOf(
                     GameExtension(
                         name = "The Hippodrome",
-                        icon = R.drawable.anno_dlc_the_hippodrome,
-                        price = 10.0f
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        image = R.drawable.anno_dlc_the_hippodrome,
+                        price = 12.99f
                     ),
                     GameExtension(
                         name = "Dawn of Delta",
-                        icon = R.drawable.anno_dlc_dawn_of_delta,
-                        price = 20.0f
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        image = R.drawable.anno_dlc_dawn_of_delta,
+                        price = 12.99f
                     ),
                     GameExtension(
                         name = "Prophecies of Ash",
-                        icon = R.drawable.anno_dlc_prophecies,
-                        price = 30.0f
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        image = R.drawable.anno_dlc_prophecies,
+                        price = 12.99f
                     )
                 )
             )

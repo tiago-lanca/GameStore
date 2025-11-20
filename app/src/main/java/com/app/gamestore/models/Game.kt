@@ -8,6 +8,7 @@ import kotlinx.parcelize.Parcelize
 data class Game(
     val id: UUID = UUID.randomUUID(),
     val name: String,
-    val icon: Int,
+    val description: String,
+    val image: Int,
     val extensions: List<GameExtension>
 ): Parcelable
