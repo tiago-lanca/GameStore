@@ -25,19 +25,19 @@ class GameViewModel : ViewModel() {
                 extensions = listOf(
                     GameExtension(
                         name = "The Hippodrome",
-                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades no império romano.Construa cidades e lidere rebeliões.",
                         image = R.drawable.anno_dlc_the_hippodrome,
                         price = 12.99f
                     ),
                     GameExtension(
                         name = "Dawn of Delta",
-                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades no império romano.Construa cidades e lidere rebeliões.",
                         image = R.drawable.anno_dlc_dawn_of_delta,
                         price = 12.99f
                     ),
                     GameExtension(
                         name = "Prophecies of Ash",
-                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades no império romano.Construa cidades e lidere rebeliões.",
                         image = R.drawable.anno_dlc_prophecies,
                         price = 12.99f
                     )
@@ -51,19 +51,19 @@ class GameViewModel : ViewModel() {
                 extensions = listOf(
                     GameExtension(
                         name = "The Hippodrome",
-                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades no império romano.Construa cidades e lidere rebeliões.",
                         image = R.drawable.anno_dlc_the_hippodrome,
                         price = 12.99f
                     ),
                     GameExtension(
                         name = "Dawn of Delta",
-                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades no império romano.Construa cidades e lidere rebeliões.",
                         image = R.drawable.anno_dlc_dawn_of_delta,
                         price = 12.99f
                     ),
                     GameExtension(
                         name = "Prophecies of Ash",
-                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades no império romano.Construa cidades e lidere rebeliões.",
                         image = R.drawable.anno_dlc_prophecies,
                         price = 12.99f
                     )
@@ -77,19 +77,19 @@ class GameViewModel : ViewModel() {
                 extensions = listOf(
                     GameExtension(
                         name = "The Hippodrome",
-                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades no império romano.Construa cidades e lidere rebeliões.",
                         image = R.drawable.anno_dlc_the_hippodrome,
                         price = 12.99f
                     ),
                     GameExtension(
                         name = "Dawn of Delta",
-                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades no império romano.Construa cidades e lidere rebeliões.",
                         image = R.drawable.anno_dlc_dawn_of_delta,
                         price = 12.99f
                     ),
                     GameExtension(
                         name = "Prophecies of Ash",
-                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades no império romano.Construa cidades e lidere rebeliões.",
                         image = R.drawable.anno_dlc_prophecies,
                         price = 12.99f
                     )
@@ -103,19 +103,19 @@ class GameViewModel : ViewModel() {
                 extensions = listOf(
                     GameExtension(
                         name = "The Hippodrome",
-                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades no império romano.Construa cidades e lidere rebeliões.",
                         image = R.drawable.anno_dlc_the_hippodrome,
                         price = 12.99f
                     ),
                     GameExtension(
                         name = "Dawn of Delta",
-                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades no império romano.Construa cidades e lidere rebeliões.",
                         image = R.drawable.anno_dlc_dawn_of_delta,
                         price = 12.99f
                     ),
                     GameExtension(
                         name = "Prophecies of Ash",
-                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades.",
+                        description = "No Anno 117 é um jogo histórico de estratégia e construção de cidades no império romano.Construa cidades e lidere rebeliões.",
                         image = R.drawable.anno_dlc_prophecies,
                         price = 12.99f
                     )

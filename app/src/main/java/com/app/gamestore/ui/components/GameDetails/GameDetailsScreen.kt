@@ -100,7 +100,7 @@ fun GameDetailsScreen(
 
 
         Column(
-            verticalArrangement = Arrangement.spacedBy(20.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp),
             modifier = Modifier
                 .padding(innerPadding)
                 .padding(15.dp)
