@@ -145,49 +145,7 @@ fun MainScreen(
                 } else {
 
                     itemsIndexed(items = gamesList, key = { _, game -> game.id }) { index, game ->
-                        Card(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .size(200.dp)
-                                .clickable {
-                                    gamesVM.selectGame(game)
-
-                                    val intent = Intent(context, GameDetailActivity::class.java)
-                                    intent.putExtra("selected_game", game)
-                                    context.startActivity(intent)
-                                }
-                        ) {
-                            Box(
-                                modifier = Modifier
-                                    .fillMaxSize()
-                            ) {
-                                Image(
-                                    painter = painterResource(game.image),
-                                    contentDescription = stringResource(R.string.game_image_desc),
-                                    contentScale = ContentScale.FillBounds,
-                                    modifier = Modifier
-                                        .matchParentSize()
-                                )
-
-                                // Dark overlay to make the text readable
-                                Box(
-                                    modifier = Modifier
-                                        .matchParentSize()
-                                        .background(Color.Black.copy(alpha = 0.50f))
-                                )
-
-                                Text(
-                                    text = game.name,
-                                    color = Color.White,
-                                    fontSize = 20.sp,
-                                    fontWeight = FontWeight.SemiBold,
-                                    modifier = Modifier
-                                        .padding(16.dp)
-                                        .align(Alignment.BottomStart),
-                                    textAlign = TextAlign.Center,
-                                )
-                            }
-                        }
+                        GameCard(game, context, gamesVM)
                     }
                 }
             }

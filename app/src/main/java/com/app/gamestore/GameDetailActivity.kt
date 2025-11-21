@@ -34,6 +34,5 @@ class GameDetailActivity : ComponentActivity() {
 @Preview
 @Composable
 fun GameDetailActivityPreview(){
-    GameDetailActivity(
-    )
+    GameDetailActivity()
 }

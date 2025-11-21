@@ -22,10 +22,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.app.gamestore.R
 import com.app.gamestore.models.GameExtension
+import com.app.gamestore.samples.GameSamples
 
 @Composable
 fun GameExtensionBox(
@@ -90,4 +92,13 @@ fun GameExtensionBox(
             )
         }
     }
+}
+
+@Preview
+@Composable
+fun GameExtensionBoxPreview(){
+    GameExtensionBox(
+        extension = GameSamples.createGameExtension(),
+        onGameExtensionClick = {}
+    )
 }

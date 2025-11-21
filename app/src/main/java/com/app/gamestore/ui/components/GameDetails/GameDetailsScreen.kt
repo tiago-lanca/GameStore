@@ -2,6 +2,7 @@ package com.app.gamestore.ui.components.GameDetails
 
 import android.app.Activity
 import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -181,7 +182,11 @@ fun GameDetailsScreen(
                 ExtensionBuyBottomSheet(
                     extension = selectedGameExtension!!,
                     onDismiss = { showExtensionBuyBottomSheet = false },
-                    onBuy = { }
+                    onBuy = {
+                        val toastText = "Acabou de comprar o item ${selectedGameExtension!!.name} por $${selectedGameExtension!!.price}"
+                        showExtensionBuyBottomSheet = false
+                        Toast.makeText(context, toastText, Toast.LENGTH_LONG).show()
+                    }
                 )
             }
         }
