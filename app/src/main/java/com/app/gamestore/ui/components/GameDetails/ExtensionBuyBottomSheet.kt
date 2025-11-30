@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.sp
 import com.app.gamestore.R
 import com.app.gamestore.models.GameExtension
 import com.app.gamestore.samples.GameSamples
+import com.app.gamestore.ui.components.GameImageView
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -91,12 +92,11 @@ fun ExtensionBuyBottomSheet(
                     Box(
                         modifier = Modifier.fillMaxSize()
                     ) {
-                        Image(
-                            painter = painterResource(extension.image),
-                            contentDescription = stringResource(R.string.extension_image_desc),
-                            contentScale = ContentScale.Crop,
+                        GameImageView(
+                            image = extension.image,
                             modifier = Modifier
-                                .matchParentSize()
+                                .matchParentSize(),
+                            contentScale = ContentScale.Crop
                         )
                     }
                 }

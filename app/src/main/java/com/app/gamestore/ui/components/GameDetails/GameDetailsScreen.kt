@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -47,6 +48,7 @@ import com.app.gamestore.R
 import com.app.gamestore.models.Game
 import com.app.gamestore.models.GameExtension
 import com.app.gamestore.samples.GameSamples
+import com.app.gamestore.ui.components.GameImageView
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -118,25 +120,30 @@ fun GameDetailsScreen(
                 Card(
                     shape = RoundedCornerShape(25.dp),
                     modifier = Modifier
-                        .size(170.dp)
+                        .weight(1f)
+                        .height(170.dp)
                 ) {
                     Box(
                         modifier = Modifier.fillMaxSize()
                     ) {
-                        Image(
-                            painter = painterResource(game.image),
-                            contentDescription = stringResource(R.string.game_image_desc),
-                            contentScale = ContentScale.Crop,
+                        GameImageView(
+                            image = game.image,
                             modifier = Modifier
-                                .matchParentSize()
+                                .matchParentSize(),
+                            contentScale = ContentScale.FillBounds
                         )
                     }
                 }
-
-                Text(
-                    text = game.description,
-                    textAlign = TextAlign.Start
-                )
+                Column(
+                    modifier = Modifier
+                        .weight(1f)
+                        .height(170.dp)
+                ) {
+                    Text(
+                        text = game.description,
+                        textAlign = TextAlign.Start
+                    )
+                }
             }
 
             Row {
@@ -151,7 +158,6 @@ fun GameDetailsScreen(
             }
 
             // List of dlc's / expansions
-
             LazyColumn(
                 verticalArrangement = Arrangement.spacedBy(10.dp),
                 modifier = Modifier

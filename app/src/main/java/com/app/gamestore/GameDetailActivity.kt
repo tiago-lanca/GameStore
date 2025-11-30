@@ -21,10 +21,9 @@ class GameDetailActivity : ComponentActivity() {
             GameStoreTheme {
                 val context = LocalContext.current
 
-                @Suppress("DEPRECATION")
-                val selectedGame = intent.getParcelableExtra<Game>("selected_game")
+                val selectedGame = intent.getSerializableExtra("selected_game") as Game
 
-                GameDetailsScreen(selectedGame!!, context)
+                GameDetailsScreen(selectedGame, context)
 
             }
         }

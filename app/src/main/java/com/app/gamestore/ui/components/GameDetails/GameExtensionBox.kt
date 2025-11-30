@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.sp
 import com.app.gamestore.R
 import com.app.gamestore.models.GameExtension
 import com.app.gamestore.samples.GameSamples
+import com.app.gamestore.ui.components.GameImageView
 
 @Composable
 fun GameExtensionBox(
@@ -47,23 +48,19 @@ fun GameExtensionBox(
             modifier = Modifier
                 .size(140.dp)
         ) {
-            Box(
-                modifier = Modifier.fillMaxSize()
-            ) {
-                Image(
-                    painter = painterResource(extension.image),
-                    contentDescription = stringResource(R.string.extension_image_desc),
-                    contentScale = ContentScale.Crop,
+                GameImageView(
+                    image = extension.image,
                     modifier = Modifier
-                        .matchParentSize()
+                        .fillMaxSize(),
+                    contentScale = ContentScale.FillBounds
                 )
-            }
+
         }
 
         Column(
             verticalArrangement = Arrangement.spacedBy(10.dp),
             modifier = Modifier
-                .fillMaxWidth()
+                .weight(1f)
         ) {
             // Name of Extension / DLC
             Text(

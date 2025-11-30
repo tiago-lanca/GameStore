@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.sp
 import com.app.gamestore.GameDetailActivity
 import com.app.gamestore.R
 import com.app.gamestore.models.Game
+import com.app.gamestore.ui.components.GameImageView
 import com.app.gamestore.viewmodels.GameViewModel
 
 @Composable
@@ -50,12 +51,11 @@ fun GameCard(
             modifier = Modifier
                 .fillMaxSize()
         ) {
-            Image(
-                painter = painterResource(game.image),
-                contentDescription = stringResource(R.string.game_image_desc),
-                contentScale = ContentScale.FillBounds,
+            GameImageView(
+                image = game.image,
                 modifier = Modifier
-                    .matchParentSize()
+                    .matchParentSize(),
+                contentScale = ContentScale.FillBounds
             )
 
             // Dark overlay to make the text readable
