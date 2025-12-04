@@ -46,6 +46,7 @@ import androidx.navigation.compose.rememberNavController
 import com.app.gamestore.GameDetailActivity
 import com.app.gamestore.R
 import com.app.gamestore.enums.NavbarOptions
+import com.app.gamestore.models.IconHandler
 import com.app.gamestore.viewmodels.GameViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -95,10 +96,21 @@ fun MainScreen(
                             selectedOption = index
                         },
                         icon = {
-                            Icon(
-                                option.icon,
-                                contentDescription = option.contentDescription
-                            )
+                            when(option.icon) {
+                                is IconHandler.ImageVectorImage -> {
+                                    Icon(
+                                        imageVector = option.icon.imageVector,
+                                        contentDescription = option.contentDescription
+                                    )
+                                }
+
+                                is IconHandler.PainterImage -> {
+                                    Icon(
+                                        painter = painterResource(option.icon.resourceId),
+                                        contentDescription = option.contentDescription
+                                    )
+                                }
+                            }
                         },
                         label = { Text(option.label) }
                     )
