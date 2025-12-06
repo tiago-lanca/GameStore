@@ -29,6 +29,9 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -54,6 +57,10 @@ import com.app.gamestore.viewmodels.GameViewModel
 fun MainScreen(
     gamesVM: GameViewModel = viewModel()
 ) {
+    val navController = rememberNavController()
+    val initialOption = NavbarOptions.FEATURED
+    var selectedOption by remember { mutableStateOf( NavbarOptions.entries.indexOf(initialOption)) }
+
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
@@ -83,16 +90,11 @@ fun MainScreen(
             )
         },
         bottomBar = {
-            val navController = rememberNavController()
-            val initialOption = NavbarOptions.FEATURED
-            var selectedOption = NavbarOptions.entries.indexOf(initialOption)
-
             NavigationBar(windowInsets = NavigationBarDefaults.windowInsets) {
                 NavbarOptions.entries.forEachIndexed { index, option ->
                     NavigationBarItem(
                         selected = selectedOption == index,
                         onClick = {
-                            navController.navigate(route = option.route)
                             selectedOption = index
                         },
                         icon = {
